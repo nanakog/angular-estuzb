@@ -1,0 +1,24 @@
+<form [formGroup]="form">
+  <div formArrayName="array">
+    <div class="col" *ngFor="let value of values; let i = index">
+      <div [formGroupName]="i">
+        <div class="custom-control custom-switch mb-3">
+          <label class="custom-control-label">
+            <input type="checkbox" formControlName="boolValue" />
+            Selected
+          </label>
+        </div>
+        <input type="text" formControlName="label" />
+      </div>
+    </div>
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary btn-lg min-w100 float-right mt-3"
+    (click)="myFunc()"
+  >
+    Save
+  </button>
+</form>
+
+<pre>{{ values | json }}</pre>
